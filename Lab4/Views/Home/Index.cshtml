@@ -1,0 +1,36 @@
+﻿@using Lab4.Models
+@model Order
+
+@{
+    ViewBag.Title = "Index";
+}
+    <img src="https://pbs.twimg.com/profile_images/2596845650/logo_star_subs_400x400.jpg" style="height:20%;width:20%;margin-left:35em" />
+
+    <div style="text-align:center">
+        <h2>Welcome to StarSubs!</h2>
+
+
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+
+            <h3>Select a Sandwich</h3>
+
+            @Html.ListBoxFor(x => x.Sub, new SelectList(Enum.GetValues(typeof(Lab4.Models.SubType))))
+
+            <br />
+
+            <h3>Select a size</h3>
+
+            @Html.ListBoxFor(x => x.Size, new SelectList(Enum.GetValues(typeof(Lab4.Models.SubSize))))
+
+            <h3>Select a Meal Deal</h3>
+            <p>@Html.RadioButtonFor(x => x.mealDeal, Lab4.Models.MealDeal.None) None </p>
+            <p>@Html.RadioButtonFor(x => x.mealDeal, Lab4.Models.MealDeal.DrinksAndChips) Drink and chips </p>
+            <p>@Html.RadioButtonFor(x => x.mealDeal, Lab4.Models.MealDeal.DrinksAndCookies) Drink and cookies </p>
+            <br />
+            <br />
+
+            <input type="submit" value="Place order" />
+        }
+
+    </div>

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Receipt";
+}
+<img src="https://pbs.twimg.com/profile_images/2596845650/logo_star_subs_400x400.jpg" style="height:20%;width:20%;margin-left:35em" />
+
+<div style="text-align:center">
+    <h2>StarSubs Receipt</h2>
+    <h4>Today's Date: @DateTime.Today.ToLongDateString()</h4>
+
+    <p><b>Type of Sub:</b> @ViewBag.Sub</p>
+    <p><b>Size of Sub:</b> @ViewBag.Bread</p>
+    <p><b>Type of Meal Deal:</b> @ViewBag.DealName</p>
+    <p><b>Total Price of Sub:</b> @ViewBag.PriceSub.ToString("c2")</p>
+    <p><b>Price of Meal Deal:</b> @ViewBag.PriceDeal.ToString("c2")</p>
+    <br />
+    <br />
+    <p><b>Cost:</b> @ViewBag.BeforeTaxCost.ToString("c2")</p>
+    <p><b>Tax:</b> @ViewBag.Tax.ToString("c2")</p>
+    <p><b>Total Due:</b> @ViewBag.Total.ToString("c2")</p>
+
+    @Html.ActionLink("Place another order", "Index", "Home")
+
+</div>
